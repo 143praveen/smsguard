@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SMSGuard</title>
+<style>
+  :root {
+    --bg: #f6f7f9; --card: #ffffff; --text: #1c2330; --muted: #5f6b7a; --border: #dde2e8;
+    --accent: #2f5bea; --spam: #c62f3b; --spam-bg: #fdecee; --ham: #1f7a4d; --ham-bg: #e8f6ee; --warn: #9a6200; --warn-bg: #fff4e0;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #11151b; --card: #1a2029; --text: #e6e9ee; --muted: #9aa5b3; --border: #2c3440;
+      --accent: #7c9bff; --spam: #ff7d87; --spam-bg: #3a1d22; --ham: #5fd39a; --ham-bg: #15301f; --warn: #ffc261; --warn-bg: #352812; }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text); font: 15px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; }
+  main { max-width: 760px; margin: 0 auto; padding: 32px 16px 48px; }
+  h1 { font-size: 24px; margin: 0 0 4px; }
+  .sub { color: var(--muted); margin: 0 0 24px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 18px; margin-bottom: 16px; }
+  textarea { width: 100%; min-height: 120px; resize: vertical; padding: 12px; border-radius: 8px; border: 1px solid var(--border);
+    background: var(--bg); color: var(--text); font: inherit; }
+  .row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin-top: 12px; }
+  button { font: inherit; border-radius: 8px; border: 1px solid var(--border); background: var(--card); color: var(--text); padding: 8px 14px; cursor: pointer; }
+  button.primary { background: var(--accent); border-color: var(--accent); color: #fff; font-weight: 600; }
+  button:disabled { opacity: .6; cursor: wait; }
+  .examples { color: var(--muted); font-size: 13px; }
+  .verdict { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 14px 16px; border-radius: 8px; }
+  .verdict.spam { background: var(--spam-bg); color: var(--spam); }
+  .verdict.ham { background: var(--ham-bg); color: var(--ham); }
+  .verdict strong { font-size: 22px; letter-spacing: .02em; }
+  .bar { height: 8px; background: var(--border); border-radius: 4px; overflow: hidden; margin-top: 10px; }
+  .bar > div { height: 100%; background: currentColor; }
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .tag { background: var(--warn-bg); color: var(--warn); border-radius: 999px; padding: 2px 10px; font-size: 13px; white-space: nowrap; }
+  .tag.bad { background: var(--spam-bg); color: var(--spam); }
+  .tag.good { background: var(--ham-bg); color: var(--ham); }
+  h2 { font-size: 15px; margin: 18px 0 8px; }
+  code.norm { display: block; white-space: pre-wrap; word-break: break-word; background: var(--bg); padding: 10px; border-radius: 6px; font-size: 13px; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  td { padding: 4px 6px; border-bottom: 1px solid var(--border); }
+  td.w { text-align: right; font-variant-numeric: tabular-nums; width: 80px; }
+  .pos { color: var(--spam); } .neg { color: var(--ham); }
+  .err { color: var(--spam); }
+  footer { color: var(--muted); font-size: 12px; margin-top: 24px; }
+</style>
+</head>
+<body>
+<main>
+  <h1>SMSGuard</h1>
+  <p class="sub">Evasion-robust SMS spam detection. Paste a text message to classify it.</p>
+
+  <div class="card">
+    <label for="msg" class="examples">Message</label>
+    <textarea id="msg" placeholder="e.g. Your parcel is on hold. Pay the fee at bit.ly/xyz"></textarea>
+    <div class="row">
+      <button id="go" class="primary">Check message</button>
+      <span class="examples">Try:</span>
+      <button data-ex="Hey, are we still on for lunch at 1pm? Call me when you're free.">Normal</button>
+      <button data-ex="URGENT! You have WON a free prize. Claim now at bit.ly/abc123">Spam</button>
+      <button data-ex="Y0ur acc0unt is l0cked. V e r i f y n o w at secure-login.xyz">Leet + spacing</button>
+      <button data-ex="Yоur pаrcel is on hоld. Pаy the custоms fee here: postoffice-redelivery.com">Homoglyph</button>
+      <button data-ex="C🎁L🎁A🎁I🎁M your ＦＲＥＥ gift card now: gift-claims.top/x">Emoji + full-width</button>
+      <button data-ex="Auspost: your pakcage could not be delivred. Rescheduel at auspost-redelivery.com">Typos + fake link</button>
+      <button data-ex="Here are the slides from today: docs.google.com/presentation/d/1x2y3z">Safe link</button>
+    </div>
+  </div>
+
+  <div id="result"></div>
+  <footer>Research prototype. Base dataset: Super SMS Dataset.</footer>
+</main>
+<script>
+const $ = (s) => document.querySelector(s);
+const esc = (s) => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const TRICKS = { zero_width: "Invisible characters", homoglyph_words: "Look-alike letters", fullwidth: "Full-width letters",
+  symbol_wedges: "Symbols inside words", spaced_runs: "Spaced-out words", leet_tokens: "Leetspeak", typos_fixed: "Misspellings corrected" };
+
+document.querySelectorAll("[data-ex]").forEach(b => b.onclick = () => { $("#msg").value = b.dataset.ex; check(); });
+$("#go").onclick = check;
+$("#msg").addEventListener("keydown", e => { if (e.key === "Enter" && (e.ctrlKey || e.metaKey)) check(); });
+
+async function check() {
+  const text = $("#msg").value.trim();
+  if (!text) return;
+  $("#go").disabled = true;
+  try {
+    const r = await fetch("/api/predict", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ text }) });
+    const d = await r.json();
+    if (!r.ok) throw new Error(d.detail || r.statusText);
+    render(d);
+  } catch (e) {
+    $("#result").innerHTML = `<div class="card err">Error: ${esc(e.message)}</div>`;
+  } finally { $("#go").disabled = false; }
+}
+
+function render(d) {
+  const pct = Math.round(d.spam_probability * 100);
+  const tricks = d.evasion_tricks.map(t => `<span class="tag">${TRICKS[t] || t}</span>`).join("");
+  const rows = d.explanation.map(f => `<tr><td>${esc(f.feature)}</td><td class="w ${f.weight > 0 ? "pos" : "neg"}">${f.weight > 0 ? "+" : ""}${f.weight.toFixed(3)}</td></tr>`).join("");
+  $("#result").innerHTML = `
+  <div class="card">
+    <div class="verdict ${d.label}">
+      <strong>${d.label === "spam" ? "SPAM" : "NOT SPAM"}</strong>
+      <span>${pct}% spam probability</span>
+    </div>
+    <div class="bar" style="color:var(--${d.label})"><div style="width:${pct}%"></div></div>
+    ${tricks ? `<h2>Evasion tricks detected</h2><div class="tags">${tricks}</div>` : ""}
+    ${d.links.length ? `<h2>Links found</h2><table>${d.links.map(l => `<tr><td>${esc(l.url)}</td><td class="w" style="width:auto"><span class="tag ${l.risky ? "bad" : l.trusted ? "good" : ""}">${esc(l.verdict)}</span></td></tr>`).join("")}</table>` : ""}
+    <h2>What the model saw (after normalisation)</h2>
+    <code class="norm">${esc(d.normalized_text)}</code>
+    <h2>Strongest signals <span class="examples">(red pushes toward spam, green toward ham)</span></h2>
+    <table>${rows}</table>
+  </div>`;
+}
+</script>
+</body>
+</html>

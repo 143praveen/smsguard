@@ -1,0 +1,37 @@
+{
+  "B0_paper_style_svm": {
+    "ms_per_message": 0.53,
+    "messages_per_second_batch": 72195,
+    "size_mb": 0.8
+  },
+  "A1_hybrid_no_norm": {
+    "ms_per_message": 3.03,
+    "messages_per_second_batch": 3971,
+    "size_mb": 4.1
+  },
+  "A4_no_norm_advtrain": {
+    "ms_per_message": 2.17,
+    "messages_per_second_batch": 6457,
+    "size_mb": 7.9
+  },
+  "A3_hybrid_norm_meta": {
+    "ms_per_message": 2.28,
+    "messages_per_second_batch": 2580,
+    "size_mb": 4.1
+  },
+  "A5_no_spellfix_advtrain": {
+    "ms_per_message": 2.02,
+    "messages_per_second_batch": 3188,
+    "size_mb": 7.2
+  },
+  "A6_no_urlrep_advtrain": {
+    "ms_per_message": 2.14,
+    "messages_per_second_batch": 2577,
+    "size_mb": 6.9
+  },
+  "SMSGuard": {
+    "ms_per_message": 2.27,
+    "messages_per_second_batch": 2512,
+    "size_mb": 7.1
+  }
+}

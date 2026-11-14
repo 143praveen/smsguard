@@ -1,0 +1,137 @@
+{
+  "fpr": {
+    "B0_paper_style_svm": {
+      "curated_hard_ham (n=40)": 0.2,
+      "curated_link_ham (n=10)": 0.3,
+      "test_ham": 0.0122,
+      "test_ham with link (n=32)": 0.0625,
+      "test_ham + emoji": 0.0122,
+      "test_ham + non-Latin name": 0.0122
+    },
+    "A1_hybrid_no_norm": {
+      "curated_hard_ham (n=40)": 0.125,
+      "curated_link_ham (n=10)": 0.2,
+      "test_ham": 0.0053,
+      "test_ham with link (n=32)": 0.0625,
+      "test_ham + emoji": 0.0053,
+      "test_ham + non-Latin name": 0.0055
+    },
+    "A4_no_norm_advtrain": {
+      "curated_hard_ham (n=40)": 0.175,
+      "curated_link_ham (n=10)": 0.4,
+      "test_ham": 0.005,
+      "test_ham with link (n=32)": 0.0625,
+      "test_ham + emoji": 0.005,
+      "test_ham + non-Latin name": 0.0053
+    },
+    "A3_hybrid_norm_meta": {
+      "curated_hard_ham (n=40)": 0.125,
+      "curated_link_ham (n=10)": 0.0,
+      "test_ham": 0.005,
+      "test_ham with link (n=32)": 0.1875,
+      "test_ham + emoji": 0.0047,
+      "test_ham + non-Latin name": 0.004
+    },
+    "A5_no_spellfix_advtrain": {
+      "curated_hard_ham (n=40)": 0.075,
+      "curated_link_ham (n=10)": 0.0,
+      "test_ham": 0.0034,
+      "test_ham with link (n=32)": 0.125,
+      "test_ham + emoji": 0.0031,
+      "test_ham + non-Latin name": 0.0026
+    },
+    "A6_no_urlrep_advtrain": {
+      "curated_hard_ham (n=40)": 0.15,
+      "curated_link_ham (n=10)": 0.5,
+      "test_ham": 0.0036,
+      "test_ham with link (n=32)": 0.2188,
+      "test_ham + emoji": 0.0033,
+      "test_ham + non-Latin name": 0.0027
+    },
+    "SMSGuard": {
+      "curated_hard_ham (n=40)": 0.1,
+      "curated_link_ham (n=10)": 0.0,
+      "test_ham": 0.0031,
+      "test_ham with link (n=32)": 0.125,
+      "test_ham + emoji": 0.0029,
+      "test_ham + non-Latin name": 0.0023
+    }
+  },
+  "spam_with_link_recall": {
+    "B0_paper_style_svm": 0.9691,
+    "A1_hybrid_no_norm": 0.9988,
+    "A4_no_norm_advtrain": 0.9981,
+    "A3_hybrid_norm_meta": 1.0,
+    "A5_no_spellfix_advtrain": 1.0,
+    "A6_no_urlrep_advtrain": 1.0,
+    "SMSGuard": 1.0
+  },
+  "flagged_curated": {
+    "B0_paper_style_svm": [
+      "Your OTP for login is 482913. Do not share it with anyone.",
+      "Your verification code is 771204. It expires in 10 minutes.",
+      "Your appointment with Dr Patel is confirmed for Tue 14 May at 10:30am. Reply C to cancel.",
+      "Your parcel has been delivered to your front door. Thanks for shopping with us.",
+      "Reminder: your electricity bill of $84.20 is due on 28 Feb. Pay in the app as usual.",
+      "Payment of $25.00 received. Thank you.",
+      "Here's the link to the doc: docs.google.com/document/d/abc",
+      "The meeting link is zoom.us/j/123456789",
+      "Join the standup here: zoom.us/j/9876543210",
+      "Your tax return status is available at ato.gov.au, log in with myGov as usual",
+      "Booked the hotel, details on booking.com in my account"
+    ],
+    "A1_hybrid_no_norm": [
+      "Your verification code is 771204. It expires in 10 minutes.",
+      "Your appointment with Dr Patel is confirmed for Tue 14 May at 10:30am. Reply C to cancel.",
+      "Your parcel has been delivered to your front door. Thanks for shopping with us.",
+      "Reminder: your electricity bill of $84.20 is due on 28 Feb. Pay in the app as usual.",
+      "Here's the link to the doc: docs.google.com/document/d/abc",
+      "Your tax return status is available at ato.gov.au, log in with myGov as usual",
+      "Booked the hotel, details on booking.com in my account"
+    ],
+    "A4_no_norm_advtrain": [
+      "Your verification code is 771204. It expires in 10 minutes.",
+      "Your appointment with Dr Patel is confirmed for Tue 14 May at 10:30am. Reply C to cancel.",
+      "Your parcel has been delivered to your front door. Thanks for shopping with us.",
+      "Reminder: your electricity bill of $84.20 is due on 28 Feb. Pay in the app as usual.",
+      "Payment of $25.00 received. Thank you.",
+      "Here's the link to the doc: docs.google.com/document/d/abc",
+      "Check this video youtube.com/watch?v=dQw4w9WgXcQ haha",
+      "Here are the slides from today: docs.google.com/presentation/d/1x2y3z",
+      "Join the standup here: zoom.us/j/9876543210",
+      "Your tax return status is available at ato.gov.au, log in with myGov as usual",
+      "Booked the hotel, details on booking.com in my account"
+    ],
+    "A3_hybrid_norm_meta": [
+      "Your verification code is 771204. It expires in 10 minutes.",
+      "Your appointment with Dr Patel is confirmed for Tue 14 May at 10:30am. Reply C to cancel.",
+      "Your parcel has been delivered to your front door. Thanks for shopping with us.",
+      "Reminder: your electricity bill of $84.20 is due on 28 Feb. Pay in the app as usual.",
+      "Call me on 0412 345 678 when you're free"
+    ],
+    "A5_no_spellfix_advtrain": [
+      "Your appointment with Dr Patel is confirmed for Tue 14 May at 10:30am. Reply C to cancel.",
+      "Reminder: your electricity bill of $84.20 is due on 28 Feb. Pay in the app as usual.",
+      "Call me on 0412 345 678 when you're free"
+    ],
+    "A6_no_urlrep_advtrain": [
+      "Your appointment with Dr Patel is confirmed for Tue 14 May at 10:30am. Reply C to cancel.",
+      "Your parcel has been delivered to your front door. Thanks for shopping with us.",
+      "Reminder: your electricity bill of $84.20 is due on 28 Feb. Pay in the app as usual.",
+      "Call me on 0412 345 678 when you're free",
+      "Here's the link to the doc: docs.google.com/document/d/abc",
+      "Check this video youtube.com/watch?v=dQw4w9WgXcQ haha",
+      "Here are the slides from today: docs.google.com/presentation/d/1x2y3z",
+      "Join the standup here: zoom.us/j/9876543210",
+      "Your tax return status is available at ato.gov.au, log in with myGov as usual",
+      "Photos from the trip: dropbox.com/sh/abc/def",
+      "Bus timetable changed, see transport.nsw.gov.au for details"
+    ],
+    "SMSGuard": [
+      "Your appointment with Dr Patel is confirmed for Tue 14 May at 10:30am. Reply C to cancel.",
+      "Your parcel has been delivered to your front door. Thanks for shopping with us.",
+      "Reminder: your electricity bill of $84.20 is due on 28 Feb. Pay in the app as usual.",
+      "Call me on 0412 345 678 when you're free"
+    ]
+  }
+}

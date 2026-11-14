@@ -1,0 +1,237 @@
+{
+  "n_train": 53530,
+  "n_test": 13383,
+  "n_test_spam": 5219,
+  "seed": 42,
+  "models": {
+    "B0_paper_style_svm": {
+      "clean": {
+        "accuracy": 0.9796,
+        "precision": 0.9806,
+        "recall": 0.9669,
+        "f1": 0.9737,
+        "fpr": 0.0122,
+        "roc_auc": 0.9958
+      },
+      "train_seconds": 0.7,
+      "fpr_ham_with_typos": 0.012,
+      "attack_detection_rate": {
+        "none": 0.9669,
+        "spacing": 0.8689,
+        "homoglyph": 0.8741,
+        "charswap": 0.8749,
+        "typo": 0.8576,
+        "zero_width": 0.8691,
+        "leet": 0.9098,
+        "fullwidth": 0.8695,
+        "emoji_wedge": 0.8689,
+        "hybrid": 0.8762
+      }
+    },
+    "A1_hybrid_no_norm": {
+      "clean": {
+        "accuracy": 0.9928,
+        "precision": 0.9917,
+        "recall": 0.9897,
+        "f1": 0.9907,
+        "fpr": 0.0053,
+        "roc_auc": 0.9994
+      },
+      "train_seconds": 13.9,
+      "fpr_ham_with_typos": 0.0049,
+      "attack_detection_rate": {
+        "none": 0.9897,
+        "spacing": 0.9665,
+        "homoglyph": 0.9839,
+        "charswap": 0.9851,
+        "typo": 0.9849,
+        "zero_width": 0.9703,
+        "leet": 0.9841,
+        "fullwidth": 0.9647,
+        "emoji_wedge": 0.9697,
+        "hybrid": 0.9768
+      }
+    },
+    "A2_hybrid_norm": {
+      "clean": {
+        "accuracy": 0.9922,
+        "precision": 0.9917,
+        "recall": 0.9883,
+        "f1": 0.99,
+        "fpr": 0.0053,
+        "roc_auc": 0.9994
+      },
+      "train_seconds": 37.7,
+      "fpr_ham_with_typos": 0.0051,
+      "attack_detection_rate": {
+        "none": 0.9883,
+        "spacing": 0.9877,
+        "homoglyph": 0.9883,
+        "charswap": 0.9879,
+        "typo": 0.9864,
+        "zero_width": 0.9883,
+        "leet": 0.9885,
+        "fullwidth": 0.9883,
+        "emoji_wedge": 0.9883,
+        "hybrid": 0.9885
+      }
+    },
+    "A3_hybrid_norm_meta": {
+      "clean": {
+        "accuracy": 0.9928,
+        "precision": 0.9921,
+        "recall": 0.9893,
+        "f1": 0.9907,
+        "fpr": 0.005,
+        "roc_auc": 0.9995
+      },
+      "train_seconds": 55.6,
+      "fpr_ham_with_typos": 0.0055,
+      "attack_detection_rate": {
+        "none": 0.9893,
+        "spacing": 0.9849,
+        "homoglyph": 0.9952,
+        "charswap": 0.9883,
+        "typo": 0.987,
+        "zero_width": 0.9916,
+        "leet": 0.9868,
+        "fullwidth": 0.9893,
+        "emoji_wedge": 0.9912,
+        "hybrid": 0.9908
+      }
+    },
+    "A4_no_norm_advtrain": {
+      "clean": {
+        "accuracy": 0.9927,
+        "precision": 0.9921,
+        "recall": 0.9891,
+        "f1": 0.9906,
+        "fpr": 0.005,
+        "roc_auc": 0.9992
+      },
+      "train_seconds": 22.5,
+      "fpr_ham_with_typos": 0.008,
+      "attack_detection_rate": {
+        "none": 0.9891,
+        "spacing": 0.9952,
+        "homoglyph": 0.9902,
+        "charswap": 0.9902,
+        "typo": 0.9872,
+        "zero_width": 0.9975,
+        "leet": 0.9916,
+        "fullwidth": 0.9931,
+        "emoji_wedge": 0.9952,
+        "hybrid": 0.9939
+      }
+    },
+    "A5_no_spellfix_advtrain": {
+      "clean": {
+        "accuracy": 0.993,
+        "precision": 0.9946,
+        "recall": 0.9874,
+        "f1": 0.991,
+        "fpr": 0.0034,
+        "roc_auc": 0.9995
+      },
+      "train_seconds": 75.2,
+      "fpr_ham_with_typos": 0.0059,
+      "attack_detection_rate": {
+        "none": 0.9874,
+        "spacing": 0.9969,
+        "homoglyph": 0.9952,
+        "charswap": 0.9875,
+        "typo": 0.9845,
+        "zero_width": 0.9996,
+        "leet": 0.9912,
+        "fullwidth": 1.0,
+        "emoji_wedge": 0.9985,
+        "hybrid": 0.9981
+      }
+    },
+    "A6_no_urlrep_advtrain": {
+      "clean": {
+        "accuracy": 0.9928,
+        "precision": 0.9944,
+        "recall": 0.9872,
+        "f1": 0.9908,
+        "fpr": 0.0036,
+        "roc_auc": 0.9994
+      },
+      "train_seconds": 81.2,
+      "fpr_ham_with_typos": 0.0047,
+      "attack_detection_rate": {
+        "none": 0.9872,
+        "spacing": 0.9973,
+        "homoglyph": 0.9954,
+        "charswap": 0.9872,
+        "typo": 0.9858,
+        "zero_width": 0.9996,
+        "leet": 0.9921,
+        "fullwidth": 1.0,
+        "emoji_wedge": 0.9983,
+        "hybrid": 0.9983
+      }
+    },
+    "SMSGuard": {
+      "clean": {
+        "accuracy": 0.9933,
+        "precision": 0.9952,
+        "recall": 0.9875,
+        "f1": 0.9913,
+        "fpr": 0.0031,
+        "roc_auc": 0.9995
+      },
+      "train_seconds": 84.7,
+      "fpr_ham_with_typos": 0.0047,
+      "attack_detection_rate": {
+        "none": 0.9875,
+        "spacing": 0.9973,
+        "homoglyph": 0.9954,
+        "charswap": 0.9875,
+        "typo": 0.9862,
+        "zero_width": 0.9996,
+        "leet": 0.9914,
+        "fullwidth": 1.0,
+        "emoji_wedge": 0.9987,
+        "hybrid": 0.9983
+      }
+    }
+  },
+  "mcnemar_vs_SMSGuard": {
+    "B0_paper_style_svm": {
+      "a_right_b_wrong": 218,
+      "b_right_a_wrong": 35,
+      "p_value": 1.7350159704414205e-33
+    },
+    "A1_hybrid_no_norm": {
+      "a_right_b_wrong": 28,
+      "b_right_a_wrong": 21,
+      "p_value": 0.3916029105474905
+    },
+    "A2_hybrid_norm": {
+      "a_right_b_wrong": 33,
+      "b_right_a_wrong": 19,
+      "p_value": 0.07039422106706228
+    },
+    "A3_hybrid_norm_meta": {
+      "a_right_b_wrong": 18,
+      "b_right_a_wrong": 11,
+      "p_value": 0.26493089646101
+    },
+    "A4_no_norm_advtrain": {
+      "a_right_b_wrong": 35,
+      "b_right_a_wrong": 27,
+      "p_value": 0.37415171240479483
+    },
+    "A5_no_spellfix_advtrain": {
+      "a_right_b_wrong": 6,
+      "b_right_a_wrong": 2,
+      "p_value": 0.2890625
+    },
+    "A6_no_urlrep_advtrain": {
+      "a_right_b_wrong": 6,
+      "b_right_a_wrong": 0,
+      "p_value": 0.03125
+    }
+  }
+}

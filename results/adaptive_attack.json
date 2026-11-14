@@ -1,0 +1,98 @@
+{
+  "B0_paper_style_svm": {
+    "n": 300,
+    "evasion_success_rate": 0.64,
+    "mean_words_changed_when_successful": 4.16,
+    "ops_used_in_successful_attacks": {
+      "charswap": 570,
+      "typo": 210,
+      "homoglyph": 17,
+      "spacing": 2
+    },
+    "examples": [
+      "Dear cosnumer your Electricity power wil be disconnecteed TOday tonight 8:.50 pm please contact..7003738754",
+      "exclsuive raneg of surplus sock watches from rolex omega tag rado tissot  with company box bill packaging flta  off shpo now  httpeurosurplusscom",
+      "Did you know You can watch late favorite movie news TV Serials on Sun Nxt Zee5 absolutely free by dwonload Vdoafone Play Clcik bit.ly/ 2TWfn1u Enjoy",
+      "there thats done thank you deepak  now for the cotnact detaisl for catering srevices   a royal weding  events  south extension part ii   ratings  sulekha scoer  call    celebration three sixty five  fateh ngaar  sulekha sore  call    karachi caterers  gole markte   ratings  sulekha sore  call    deram deco  caterers  dwarka sector   sulekha sore  call    nirbhay chicken corner  rohini sector   sulekha scare  call    sigh tawa corner  karol bah  sulekha socre  call   please check out quotes from at least  businesses before you finalise the deal  manage your needs on the go downloda sulekha pap httpgooglbzvbwj",
+      "Plan Sanction as per MPD2021 X-Tra Floor X-Tra Aera DDA MCD DSIDC HUDA:Gurgaon Faridabad Noiad HI-TECH ARCHITECTS 9212012222 65657777  hi_tech@in.com "
+    ],
+    "seconds": 7.2
+  },
+  "A1_hybrid_no_norm": {
+    "n": 300,
+    "evasion_success_rate": 0.2133,
+    "mean_words_changed_when_successful": 5.08,
+    "ops_used_in_successful_attacks": {
+      "spacing": 182,
+      "fullwidth": 82,
+      "typo": 24,
+      "leet": 13,
+      "zero_width": 13,
+      "charswap": 10,
+      "homoglyph": 1
+    },
+    "examples": [
+      "we eagerly await you at dunkin donuts come try our nw too much burgers w i t h a b u y one \uff47\uff45\uff54 one \uff4f\uff46\uff46\uff45\uff52 on food cpn crmhppx v a l i d t i l l  feb tc",
+      "cab ride at just rskm  you heard it right this week every taxiforsure ride at just rsper km in j a i p u r use cdoe perkm \uff4f\uff46\uff46\uff45\uff52 v a l i d t i l l sunday tca",
+      "Our brand nw m o b i l e music s e r v i c e is now live. The free music player will arrive shortly. Just install on y o u r phone to browse c o n t e n t from the top artists.",
+      "Our system show that y o u r e l i g i b l e for a Covid Pass To \uff41\uff50\uff50\uff4c\uff59 please fill out the application via covidpass r e g i s t r a t i o n.ocm",
+      "Satisfy y o u r cheese cravings by making easy Lasagne Roll ups today! For recipe, \uff43\uff4c\uff49\uff43\uff4b the l i n k: \uff48\uff54\uff54\uff50://p.j a z z m o b i l e m a g.pk/i2QqYQo/ceb6"
+    ],
+    "seconds": 57.5
+  },
+  "A4_no_norm_advtrain": {
+    "n": 300,
+    "evasion_success_rate": 0.0533,
+    "mean_words_changed_when_successful": 3.81,
+    "ops_used_in_successful_attacks": {
+      "typo": 21,
+      "charswap": 11,
+      "leet": 9,
+      "homoglyph": 9,
+      "emoji_wedge": 5,
+      "spacing": 4,
+      "fullwidth": 2
+    },
+    "examples": [
+      "w i n super bike super bike harley davidson just ans few correct ans cal  tf",
+      "Sexy wot colour is your eye and heair sexy writing back please please please please writeing bk please please",
+      "Dear Sir Madam I Wish You HAPPY MAHA SHIVARATHRI Rds HARSHA MUTALIK Caniddate fsor KSBC Request Y o u to cast yowr 1st Preference \uff36\uff4f\uff54\uff45 in My Favour X\u2713X\u2713X\u2713X\u2713X\u2713X\u2713X\u2713X\u2713X\u2713X",
+      "YES! The only place in town to meet 3xc1ting adult singles is nw in the UK. Tyt ChHAT to 86688 now! 150p/Msg.",
+      "The President I need my loyal supporter input on the Dems baseless attack All response in next hour will be sned to me Take the p0ll hee b1t.ly/2J"
+    ],
+    "seconds": 58.4
+  },
+  "A5_no_spellfix_advtrain": {
+    "n": 300,
+    "evasion_success_rate": 0.03,
+    "mean_words_changed_when_successful": 2.89,
+    "ops_used_in_successful_attacks": {
+      "typo": 17,
+      "charswap": 7,
+      "leet": 2
+    },
+    "examples": [
+      "{Send FREE SMS 2 any moible in India   Malaysia & Singapore. Register with 160by2.cm}",
+      "bonus rewrad points worth rs tc aplpy",
+      "ready to live villas at kalathipady for  lawkhs contact ",
+      "Praha Constructions Co is doing Renovation works   Nw buildings interior works  100% labor strength wsth all categories for bett quality",
+      "Ron Johnon be X POITS DOWN Can you chpi in X to save Wisconsin frm FUNDAMENTAL destruction"
+    ],
+    "seconds": 117.6
+  },
+  "SMSGuard": {
+    "n": 300,
+    "evasion_success_rate": 0.01,
+    "mean_words_changed_when_successful": 1.67,
+    "ops_used_in_successful_attacks": {
+      "typo": 3,
+      "charswap": 2
+    },
+    "examples": [
+      "you have added a beneficiary fsd for send money to bak",
+      "omg so many gorgeous kurtas at neverseenbefore prices run its the big bang sae httplimerodamelkkypo",
+      "People with TB infection should always cover their mouth n nose when they cough or sneeze.Prevent Infectin Stop TB. Public service message by lEi Lilly & Co."
+    ],
+    "seconds": 153.5
+  }
+}
